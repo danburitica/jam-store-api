@@ -73,8 +73,8 @@ export class CreateTransactionUseCase {
         // Paso 5: Esperar hasta que el status sea diferente de PENDING
         let finalStatus = 'PENDING';
         let attempts = 0;
-        const maxAttempts = 5; // Máximo 5 intentos
-        const pollInterval = 500; // Consultar cada 500 milisegundos
+        const maxAttempts = 10; // Máximo 10 intentos
+        const pollInterval = 1000; // Consultar cada 1 segundo
 
         while (finalStatus === 'PENDING' && attempts < maxAttempts) {
           // Esperar antes de la siguiente consulta
