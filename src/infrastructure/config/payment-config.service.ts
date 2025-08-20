@@ -40,16 +40,16 @@ export class PaymentConfigService {
     const requiredVars = [
       'PAYMENT_PUBLIC_KEY',
       'PAYMENT_INTEGRITY_SECRET',
-      'PAYMENT_API_URL'
+      'PAYMENT_API_URL',
     ];
 
     const missingVars = requiredVars.filter(
-      varName => !this.configService.get(varName)
+      (varName) => !this.configService.get(varName),
     );
 
     if (missingVars.length > 0) {
       throw new Error(
-        `Variables de entorno requeridas no configuradas: ${missingVars.join(', ')}`
+        `Variables de entorno requeridas no configuradas: ${missingVars.join(', ')}`,
       );
     }
   }
