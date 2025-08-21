@@ -1,0 +1,26 @@
+service: nest-lambda-api
+
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  architecture: arm64
+  stage: dev
+  region: us-east-1
+  memorySize: 2048
+  logRetentionInDays: 1
+  timeout: 15
+  
+
+functions:
+  app:
+    handler: dist/lambda.handler
+    events:
+      - httpApi:
+          method: any
+          path: /{proxy+}
+
+plugins:
+  - serverless-jetpack
+  - serverless-offline
