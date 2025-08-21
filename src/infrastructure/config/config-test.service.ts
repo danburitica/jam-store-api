@@ -10,18 +10,9 @@ export class ConfigTestService implements OnModuleInit {
     try {
       this.paymentConfigService.validateConfig();
       console.log('✅ Configuración de pagos validada correctamente');
-      this.logConfig();
     } catch (error) {
-      console.error('❌ Error en la configuración de pagos:', error.message);
+      console.error('❌ Error en la configuración de pagos:', error);
     }
-  }
-
-  private logConfig(): void {
-    console.log('🔑 Configuración de Pagos:');
-    console.log(`   Public Key: ${this.paymentConfigService.publicKey}`);
-    console.log(`   Integrity Secret: ${this.paymentConfigService.integritySecret}`);
-    console.log(`   API URL: ${this.paymentConfigService.apiUrl}`);
-    console.log(`   Timeout: ${this.paymentConfigService.timeout}ms`);
   }
 
   /**
