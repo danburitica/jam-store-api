@@ -152,7 +152,7 @@ describe('Transaction Entity', () => {
 
       // Act
       for (let i = 0; i < 5; i++) {
-        await new Promise((resolve) => setTimeout(resolve, 1)); // Small delay
+        await new Promise((resolve) => setTimeout(resolve, 10)); // Increased delay to ensure different timestamps
         transactions.push(Transaction.create());
       }
 
